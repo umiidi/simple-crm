@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: &connectionUrl jdbc:mysql://${DB_CONNECTION_IP:localhost}:${DB_CONNECTION_PORT:3306}/simple-crm?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+    username: &username ${DB_CONNECTION_USERNAME:root}
+    password: &password ${DB_CONNECTION_PASSWORD:password}
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+security:
+  jwtProperties:
+    secret-key: ZFcxcGFXUnBkVzFwYVdScGRXMXBhV1JwZFcxcGFXUnBkVzFwYVdScGRXMXBhV1JwZFcxcGFXUnBkVzFwYVdScGRXMXBhV1JwZFcxcGFXUnA=
+    access-token-validity-in-seconds: 300           # 5 minute
